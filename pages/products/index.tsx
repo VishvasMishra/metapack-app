@@ -59,7 +59,7 @@ const Products = () => {
             toggle={<Button iconOnly={<MoreHorizIcon color="secondary60" />} variant="subtle" />}
         />
     );
-
+ 
     if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
 
