@@ -22,4 +22,4 @@ describe('Product List', () => {
         expect(productsTable).toBeDefined();
         expect(rowsLength).toEqual(ROW_NUMBERS);
     });
-});
+}); 
