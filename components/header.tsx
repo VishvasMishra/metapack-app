@@ -58,6 +58,7 @@ const Header = () => {
     useEffect(() => {
         // Prefetch products page to reduce latency (doesn't prefetch in dev)
         router.prefetch('/products');
+        router.prefetch('/rate');
     });
 
     const items = [
