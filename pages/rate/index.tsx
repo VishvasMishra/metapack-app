@@ -1,6 +1,6 @@
 import { Box } from "@bigcommerce/big-design";
 
-const rate = ()=>{
+const Rate = ()=>{
     return (
         <Box marginBottom="xxLarge" id="rate">
             <h1>Hello</h1>
@@ -8,4 +8,4 @@ const rate = ()=>{
     );
 }
 
-export default rate;
+export default Rate;
