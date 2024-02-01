@@ -68,6 +68,7 @@ export async function getSession({ query: { context = '' } }: NextApiRequest) {
     }
 
     const accessToken = await db.getStoreToken(storeHash);
+    console.log(accessToken);
 
     return { accessToken, storeHash, user };
 }
