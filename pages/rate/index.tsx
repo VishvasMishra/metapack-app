@@ -1,7 +1,7 @@
 import { Box } from "@bigcommerce/big-design";
 
 const Rate = ()=>{
-    const obj = {
+    const rate = {
         "quote_id": "Lor",
         "messages": [
           {
@@ -460,7 +460,6 @@ const Rate = ()=>{
           }
         ]
       };
-    return obj;
 }
 
 export default Rate;
