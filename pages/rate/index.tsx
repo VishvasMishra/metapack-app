@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
-function Rate() {
+function MyComponent() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://statuesque-cobbler-40d17b.netlify.app/rate');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://api.example.com/data');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
       }
-    };
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
 
     fetchData();
+
+    // Clean-up function if necessary
+    return () => {
+      // Any clean-up code
+    };
   }, []); // Empty dependency array to run effect only once on component mount
 
   if (loading) {
@@ -40,4 +44,4 @@ function Rate() {
   );
 }
 
-export default Rate;
+export default MyComponent;
