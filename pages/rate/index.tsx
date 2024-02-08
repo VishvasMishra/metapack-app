@@ -1,47 +1,49 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function MyComponent() {
+function Rate() {
+  // State to hold the fetched data
   const [data, setData] = useState(null);
+  // State to hold loading status
+  const [isLoading, setIsLoading] = useState(true);
+  // State to hold error status
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const fetchData = async () => {
-    try {
-      const response = await fetch('https://api.example.com/data');
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const jsonData = await response.json();
-      setData(jsonData);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+
+  // Fetch data when the component mounts
   useEffect(() => {
+    // Axios GET request to fetch data
+    axios.get('https://statuesque-cobbler-40d17b.netlify.app/rate')
+      .then(response => {
+        // Update state with fetched data
+        setData(response.data);
+        // Set loading to false
+        setIsLoading(false);
+      })
+      .catch(error => {
+        // Handle errors
+        setError(error);
+        // Set loading to false
+        setIsLoading(false);
+      });
+  }, []);
 
-    fetchData();
-
-    // Clean-up function if necessary
-    return () => {
-      // Any clean-up code
-    };
-  }, []); // Empty dependency array to run effect only once on component mount
-
-  if (loading) {
+  // If loading, display loading message
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
+  // If error, display error message
   if (error) {
     return <div>Error: {error.message}</div>;
   }
 
+  // If data is fetched successfully, display it
   return (
     <div>
-      {/* Display data */}
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <h1>Data Fetching Example</h1>
+      <p>{data}</p>
     </div>
   );
 }
 
-export default MyComponent;
+export default Rate;
