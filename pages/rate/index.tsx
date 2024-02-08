@@ -460,6 +460,8 @@ const Rate = ()=>{
           }
         ]
       };
+      var xyz = JSON.stringify(rate)
+      return xyz;
 }
 
 export default Rate;
