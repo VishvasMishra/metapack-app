@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useShipping } from "@bigcommerce/storefront-data-hooks";
-
-const ShippingProvider = () => {
-  const [shippingMethods, setShippingMethods] = useState([]);
-  const { getShippingMethods } = useShipping();
-
-  useEffect(() => {
-    getShippingMethods().then((methods) => {
-      setShippingMethods(methods);
-    });
-  }, []);
-
-  return (
-    <div>
-      <h1>Shipping Methods</h1>
-      <ul>
-        {shippingMethods.map((method) => (
-          <li key={method.id}>{method.name}</li>
+import React, { useState, useEffect } from 'react';
+function Rate() {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        async function getData() {
+        const fetchedData = await fetchdata();
+        setData(fetchedData);
+    }
+    getData();
+}, []);
+        return (
+        <div>
+        {data.map((item) => (
+        <div key={item.id}>{item.name}</div>
         ))}
-      </ul>
-    </div>
-  );
-};
+        </div>
+        );
+}
 
-export default ShippingProvider;
+export default Rate;
