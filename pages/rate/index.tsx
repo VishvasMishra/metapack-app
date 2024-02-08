@@ -464,4 +464,4 @@ const Rate = ()=>{
       return xyz; 
 }
 
-export default Rate;
+export default Rate; 
