@@ -461,7 +461,7 @@ const Rate = ()=>{
         ]
       };
       var xyz = JSON.stringify(rate)
-      return xyz;
+      return xyz; 
 }
 
 export default Rate;
