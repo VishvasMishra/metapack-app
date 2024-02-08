@@ -3,7 +3,7 @@ function Rate() {
     const [data, setData] = useState([]);
     useEffect(() => {
         async function getData() {
-        const fetchedData = await fetchdata();
+        const fetchedData = await fetchedData();
         setData(fetchedData);
     }
     getData();
