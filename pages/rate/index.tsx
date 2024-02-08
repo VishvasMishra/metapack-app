@@ -8,7 +8,7 @@ function Rate() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch();
+        const response = await fetch('https://statuesque-cobbler-40d17b.netlify.app/rate');
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
