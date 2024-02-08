@@ -22,11 +22,6 @@ function Rate() {
     };
 
     fetchData();
-
-    // Clean-up function if necessary
-    return () => {
-      // Any clean-up code
-    };
   }, []); // Empty dependency array to run effect only once on component mount
 
   if (loading) {
