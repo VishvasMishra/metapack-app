@@ -1,12 +1,8 @@
-// pages/api/saveData.js
-
 import fs from 'fs';
 
-export default function handler(req, res) {
+function Handler(req, res) {
   if (req.method === 'POST') {
-    const jsonData = req.body; // Assuming the JSON data is sent in the request body
-
-    // Write JSON data to a text file
+    const jsonData = req.body;
     fs.writeFile('data.txt', JSON.stringify(jsonData), (err) => {
       if (err) {
         console.error(err);
@@ -20,3 +16,4 @@ export default function handler(req, res) {
     res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
+export default Handler;
