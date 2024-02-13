@@ -7,9 +7,9 @@ function Handler(req, res) {
       if (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to write data to file.' });
+        
         return;
       }
-      console.log('Data has been written to data.txt file.');
       res.status(200).json({ message: 'Data has been written to file.' });
     });
   } else {
